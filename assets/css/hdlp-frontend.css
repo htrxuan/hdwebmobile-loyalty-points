@@ -1,0 +1,27 @@
+.hdlp-redemption-box {
+    margin: 1.5em 0;
+    padding: 1em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.hdlp-redemption-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.hdlp-redemption-form input[type="number"] {
+    width: 100px;
+}
+
+.hdlp-note {
+    opacity: 0.75;
+    font-size: 0.9em;
+}
+
+.hdlp-history-table th,
+.hdlp-history-table td {
+    text-align: left;
+}
