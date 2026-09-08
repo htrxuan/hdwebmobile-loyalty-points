@@ -69,7 +69,7 @@ final class HDLP_Core
         ?>
         <div class="notice notice-error is-dismissible">
             <p>
-                <?php esc_html_e('HDWebmobile Loyalty Points & Store Credit requires WooCommerce to be installed and active. The plugin has been deactivated.', 'hdwebmobile-loyalty-points'); ?>
+                <?php esc_html_e('HDWebmobile Loyalty Points & Store Credit requires WooCommerce to be installed and active. The plugin has been deactivated.', 'hdwebmobile-loyalty-points-store-credit'); ?>
             </p>
         </div>
         <?php

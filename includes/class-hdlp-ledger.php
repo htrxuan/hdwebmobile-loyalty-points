@@ -115,7 +115,7 @@ class HDLP_Ledger
 
         self::insert($user_id, $points, self::TYPE_EARNED, $order->get_id(), sprintf(
             /* translators: %s: order number */
-            __('Earned from order #%s', 'hdwebmobile-loyalty-points'),
+            __('Earned from order #%s', 'hdwebmobile-loyalty-points-store-credit'),
             $order->get_order_number()
         ));
 
@@ -151,7 +151,7 @@ class HDLP_Ledger
 
         self::insert($user_id, -$to_redeem, self::TYPE_REDEEMED, $order->get_id(), sprintf(
             /* translators: %s: order number */
-            __('Redeemed on order #%s', 'hdwebmobile-loyalty-points'),
+            __('Redeemed on order #%s', 'hdwebmobile-loyalty-points-store-credit'),
             $order->get_order_number()
         ));
 
@@ -178,7 +178,7 @@ class HDLP_Ledger
         if ($awarded > 0 && !$order->get_meta('_hdlp_award_reversed')) {
             self::insert($user_id, -$awarded, self::TYPE_REVERSED, $order->get_id(), sprintf(
                 /* translators: %s: order number */
-                __('Reversal of points earned from order #%s', 'hdwebmobile-loyalty-points'),
+                __('Reversal of points earned from order #%s', 'hdwebmobile-loyalty-points-store-credit'),
                 $order->get_order_number()
             ));
             $order->update_meta_data('_hdlp_award_reversed', 1);
@@ -188,7 +188,7 @@ class HDLP_Ledger
         if ($redeemed > 0 && !$order->get_meta('_hdlp_redemption_reversed')) {
             self::insert($user_id, $redeemed, self::TYPE_REVERSED, $order->get_id(), sprintf(
                 /* translators: %s: order number */
-                __('Refund of points redeemed on order #%s', 'hdwebmobile-loyalty-points'),
+                __('Refund of points redeemed on order #%s', 'hdwebmobile-loyalty-points-store-credit'),
                 $order->get_order_number()
             ));
             $order->update_meta_data('_hdlp_redemption_reversed', 1);

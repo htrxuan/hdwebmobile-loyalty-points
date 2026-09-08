@@ -111,7 +111,7 @@ final class HDLP_Redemption
 
         echo '<div class="hdlp-redemption-box">';
         /* translators: %s: the customer's current points balance, formatted with the strong tags already applied */
-        $balance_line = esc_html__('You have %s loyalty points available.', 'hdwebmobile-loyalty-points');
+        $balance_line = esc_html__('You have %s loyalty points available.', 'hdwebmobile-loyalty-points-store-credit');
         printf(
             '<p>' . $balance_line . '</p>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $balance_line is already the output of esc_html__() above.
             '<strong>' . esc_html(number_format_i18n($balance)) . '</strong>'
@@ -119,7 +119,7 @@ final class HDLP_Redemption
 
         if ($balance < (int) $options['min_points_to_redeem']) {
             /* translators: %s: the minimum number of points required to redeem, already formatted and escaped */
-            $min_points_line = esc_html__('You need at least %s points to redeem.', 'hdwebmobile-loyalty-points');
+            $min_points_line = esc_html__('You need at least %s points to redeem.', 'hdwebmobile-loyalty-points-store-credit');
             printf(
                 '<p class="hdlp-note">' . $min_points_line . '</p>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $min_points_line is already the output of esc_html__() above.
                 esc_html(number_format_i18n((int) $options['min_points_to_redeem']))
@@ -132,7 +132,7 @@ final class HDLP_Redemption
         wp_nonce_field(self::NONCE_ACTION, 'hdlp_nonce');
         printf(
             '<label for="hdlp_points">%s</label>',
-            esc_html__('Points to redeem:', 'hdwebmobile-loyalty-points')
+            esc_html__('Points to redeem:', 'hdwebmobile-loyalty-points-store-credit')
         );
         printf(
             '<input type="number" id="hdlp_points" name="hdlp_points" min="%d" max="%d" step="1" value="%d" />',
@@ -140,9 +140,9 @@ final class HDLP_Redemption
             (int) $balance,
             $current > 0 ? (int) $current : (int) $options['min_points_to_redeem']
         );
-        echo '<button type="submit" name="hdlp_action" value="apply" class="button">' . esc_html__('Apply', 'hdwebmobile-loyalty-points') . '</button>';
+        echo '<button type="submit" name="hdlp_action" value="apply" class="button">' . esc_html__('Apply', 'hdwebmobile-loyalty-points-store-credit') . '</button>';
         if ($current > 0) {
-            echo ' <button type="submit" name="hdlp_action" value="remove" class="button">' . esc_html__('Remove', 'hdwebmobile-loyalty-points') . '</button>';
+            echo ' <button type="submit" name="hdlp_action" value="remove" class="button">' . esc_html__('Remove', 'hdwebmobile-loyalty-points-store-credit') . '</button>';
         }
         echo '</form>';
         echo '</div>';
@@ -173,7 +173,7 @@ final class HDLP_Redemption
             return;
         }
 
-        $cart->add_fee(__('Loyalty Points Discount', 'hdwebmobile-loyalty-points'), -$discount, false);
+        $cart->add_fee(__('Loyalty Points Discount', 'hdwebmobile-loyalty-points-store-credit'), -$discount, false);
     }
 
     /**

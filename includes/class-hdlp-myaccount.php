@@ -46,11 +46,11 @@ final class HDLP_MyAccount
         foreach ($items as $key => $label) {
             $new_items[$key] = $label;
             if ('orders' === $key) {
-                $new_items[self::ENDPOINT] = __('Loyalty Points', 'hdwebmobile-loyalty-points');
+                $new_items[self::ENDPOINT] = __('Loyalty Points', 'hdwebmobile-loyalty-points-store-credit');
             }
         }
         if (!isset($new_items[self::ENDPOINT])) {
-            $new_items[self::ENDPOINT] = __('Loyalty Points', 'hdwebmobile-loyalty-points');
+            $new_items[self::ENDPOINT] = __('Loyalty Points', 'hdwebmobile-loyalty-points-store-credit');
         }
         return $new_items;
     }
@@ -61,24 +61,24 @@ final class HDLP_MyAccount
         $balance = HDLP_Ledger::get_balance($user_id);
         $history = HDLP_Ledger::get_history($user_id, 50);
 
-        echo '<h2>' . esc_html__('Loyalty Points', 'hdwebmobile-loyalty-points') . '</h2>';
+        echo '<h2>' . esc_html__('Loyalty Points', 'hdwebmobile-loyalty-points-store-credit') . '</h2>';
         /* translators: %s: the customer's current points balance, formatted with the strong tags already applied */
-        $balance_line = esc_html__('Your current balance: %s points', 'hdwebmobile-loyalty-points');
+        $balance_line = esc_html__('Your current balance: %s points', 'hdwebmobile-loyalty-points-store-credit');
         printf(
             '<p>' . $balance_line . '</p>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $balance_line is already the output of esc_html__() above.
             '<strong>' . esc_html(number_format_i18n($balance)) . '</strong>'
         );
 
         if (empty($history)) {
-            echo '<p>' . esc_html__('No points activity yet.', 'hdwebmobile-loyalty-points') . '</p>';
+            echo '<p>' . esc_html__('No points activity yet.', 'hdwebmobile-loyalty-points-store-credit') . '</p>';
             return;
         }
 
         echo '<table class="woocommerce-table shop_table hdlp-history-table">';
         echo '<thead><tr>';
-        echo '<th>' . esc_html__('Date', 'hdwebmobile-loyalty-points') . '</th>';
-        echo '<th>' . esc_html__('Description', 'hdwebmobile-loyalty-points') . '</th>';
-        echo '<th>' . esc_html__('Points', 'hdwebmobile-loyalty-points') . '</th>';
+        echo '<th>' . esc_html__('Date', 'hdwebmobile-loyalty-points-store-credit') . '</th>';
+        echo '<th>' . esc_html__('Description', 'hdwebmobile-loyalty-points-store-credit') . '</th>';
+        echo '<th>' . esc_html__('Points', 'hdwebmobile-loyalty-points-store-credit') . '</th>';
         echo '</tr></thead><tbody>';
 
         foreach ($history as $row) {
